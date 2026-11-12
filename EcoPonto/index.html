@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#087a4b">
+  <title>EcoPonto Connect | Manaus</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Leaflet: biblioteca gratuita para mapas interativos -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">♻</span>
+      <span><strong>ECOPONTO</strong><small>CONNECT · MANAUS</small></span>
+    </a>
+    <nav class="main-nav">
+      <a href="#inicio">Início</a>
+      <a href="#mapa">Encontrar ecoponto</a>
+      <a href="#como-funciona">Como funciona</a>
+    </nav>
+    <button class="admin-shortcut" id="openAdmin">Painel administrativo ↗</button>
+  </header>
+
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero-content">
+        <span class="eyebrow">MANAUS MAIS SUSTENTÁVEL</span>
+        <h1>O descarte correto começa <em>perto de você.</em></h1>
+        <p>Encontre pontos de coleta, descubra quais materiais são aceitos e ajude a construir uma cidade mais limpa.</p>
+        <a class="primary-btn" href="#mapa">Encontrar ecoponto <span>→</span></a>
+      </div>
+      <div class="hero-art" aria-label="Ilustração de reciclagem">
+        <div class="art-circle circle-one"></div><div class="art-circle circle-two"></div>
+        <div class="recycle-art">♻</div>
+        <div class="art-label"><span class="pulse"></span> Cuidar da cidade é um compromisso de todos</div>
+      </div>
+    </section>
+
+    <section class="section map-section" id="mapa">
+      <div class="section-heading">
+        <div><span class="eyebrow">LOCALIZAÇÃO</span><h2>Encontre um EcoPonto</h2>
+        <p>Pesquise e filtre os pontos de coleta disponíveis.</p></div>
+        <span class="demo-tag">DADOS DEMONSTRATIVOS</span>
+      </div>
+      <div class="search-row">
+        <label class="search-box"><span>⌕</span><input id="searchInput" type="search" placeholder="Buscar por bairro ou ecoponto..."></label>
+        <select id="materialFilter" aria-label="Filtrar por material">
+          <option value="Todos">Todos os materiais</option><option value="Papel">Papel</option>
+          <option value="Plástico">Plástico</option><option value="Vidro">Vidro</option>
+          <option value="Metal">Metal</option><option value="Eletrônicos">Eletrônicos</option>
+          <option value="Óleo">Óleo</option><option value="Volumosos">Volumosos</option>
+        </select>
+      </div>
+      <div class="map-layout">
+        <div id="map" class="map" role="application" aria-label="Mapa demonstrativo de ecopontos em Manaus"></div>
+        <aside class="location-panel">
+          <div class="panel-top"><strong>Ec pontos próximos</strong><span id="resultCount">4 locais</span></div>
+          <div id="locationList" class="location-list"></div>
+          <p class="map-note">* Os locais exibidos são fictícios e servem apenas para demonstrar o funcionamento da interface.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section how-section" id="como-funciona">
+      <div class="section-heading"><div><span class="eyebrow">DESCARTE CONSCIENTE</span><h2>Como funciona?</h2><p>Três passos simples para dar o destino correto aos resíduos.</p></div></div>
+      <div class="steps-grid">
+        <article class="step-card"><span class="step-number">01</span><div class="step-icon">🧹</div><h3>Separe os materiais</h3><p>Organize os resíduos por tipo: papel, plástico, vidro, metal e outros.</p></article>
+        <article class="step-card"><span class="step-number">02</span><div class="step-icon">📍</div><h3>Encontre um ponto</h3><p>Consulte no mapa um local que receba o material que você deseja descartar.</p></article>
+        <article class="step-card"><span class="step-number">03</span><div class="step-icon">🌱</div><h3>Faça o descarte</h3><p>Leve os resíduos ao local indicado ou solicite uma coleta, quando disponível.</p></article>
+      </div>
+    </section>
+
+    <section class="section materials-section">
+      <div class="section-heading"><div><span class="eyebrow">SEPARE CORRETAMENTE</span><h2>O que pode ser reciclado?</h2></div></div>
+      <div class="materials-grid">
+        <article class="material-card"><span>📄</span><strong>Papel</strong><small>Jornais, caixas e folhas limpas.</small></article>
+        <article class="material-card"><span>🧴</span><strong>Plástico</strong><small>Garrafas PET e embalagens.</small></article>
+        <article class="material-card"><span>🍾</span><strong>Vidro</strong><small>Potes e garrafas, sem resíduos.</small></article>
+        <article class="material-card"><span>🥫</span><strong>Metal</strong><small>Latas e embalagens metálicas.</small></article>
+        <article class="material-card"><span>🔋</span><strong>Eletrônicos</strong><small>Pilhas, baterias e equipamentos em locais apropriados.</small></article>
+        <article class="material-card"><span>🛢️</span><strong>Óleo usado</strong><small>Armazene em garrafa fechada.</small></article>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div><span class="eyebrow light">FAÇA PARTE DA MUDANÇA</span><h2>Uma Manaus mais limpa depende de todos nós.</h2><p>Pequenas atitudes geram grandes transformações.</p></div>
+      <a href="#mapa" class="light-btn">Ver pontos de coleta →</a>
+    </section>
+  </main>
+
+  <footer><a class="brand footer-brand" href="#"><span class="brand-icon">♻</span><span><strong>ECOPONTO</strong><small>CONNECT · MANAUS</small></span></a><p>Projeto acadêmico demonstrativo · © 2026 EcoPonto Connect</p></footer>
+
+  <!-- Painel administrativo demonstrativo -->
+  <div class="admin-overlay" id="adminOverlay" aria-hidden="true">
+    <section class="admin-window" role="dialog" aria-modal="true" aria-labelledby="adminTitle">
+      <aside class="admin-sidebar">
+        <div class="admin-brand"><span>♻</span><strong>ADMIN<br>ECOPONTO</strong></div>
+        <button class="side-link active">▦ &nbsp; Dashboard</button>
+        <button class="side-link" data-scroll="adminTable">♧ &nbsp; Gestão de Ecopontos</button>
+        <button class="side-link" data-scroll="adminAlerts">⚠ &nbsp; Alertas de capacidade</button>
+        <button class="side-link" data-scroll="adminTable">▣ &nbsp; Coletas agendadas</button>
+        <button class="side-link" data-scroll="adminChart">▤ &nbsp; Relatórios</button>
+        <div class="sidebar-bottom">PAINEL DE DEMONSTRAÇÃO</div>
+      </aside>
+      <div class="admin-main">
+        <div class="admin-header"><div><span class="eyebrow">ÁREA RESTRITA · DEMONSTRAÇÃO</span><h2 id="adminTitle">Admin EcoPonto - Manaus</h2></div><button class="close-admin" id="closeAdmin" aria-label="Fechar painel">×</button></div>
+        <div class="kpi-grid">
+          <article class="kpi green"><small>Total reciclado</small><strong>120 <small>ton.</small></strong><span>♻ Indicador ilustrativo</span></article>
+          <article class="kpi orange" id="adminAlerts"><small>Alertas de capacidade</small><strong>5 <small>(Alta)</small></strong><span>⚠ Dados fictícios</span></article>
+          <article class="kpi blue"><small>Pedidos de coleta pendentes</small><strong>18</strong><span>▣ Para demonstração</span></article>
+        </div>
+        <div class="admin-content-grid">
+          <article class="admin-card admin-map-card"><div class="card-heading"><strong>Mapa de concentração</strong><small>Manaus · exemplo visual</small></div><div class="heatmap"><span class="heat h1"></span><span class="heat h2"></span><span class="heat h3"></span><span class="heat h4"></span><span class="heat h5"></span><span class="heat h6"></span><span class="heat h7"></span></div></article>
+          <article class="admin-card" id="adminChart"><div class="card-heading"><strong>Volume por tipo de resíduo</strong><small>Valores ilustrativos</small></div><div class="bar-chart"><div><i style="height:88%"></i><small>Plástico</small></div><div><i style="height:56%"></i><small>Vidro</small></div><div><i style="height:38%"></i><small>Metal</small></div><div><i style="height:28%"></i><small>Papel</small></div><div><i style="height:17%"></i><small>Óleo</small></div></div></article>
+        </div>
+        <article class="admin-card table-card" id="adminTable"><div class="card-heading"><strong>Status dos ecopontos</strong><small>Lista de exemplo</small></div><div class="table-scroll"><table><thead><tr><th>Nome</th><th>Bairro</th><th>Capacidade</th><th>Status</th></tr></thead><tbody id="adminRows"></tbody></table></div></article>
+        <p class="admin-disclaimer">Este painel não possui login, banco de dados ou informações oficiais. Os números e registros são apenas exemplos de interface.</p>
+      </div>
+    </section>
+  </div>
+
+  <div class="modal-overlay" id="scheduleModal" aria-hidden="true">
+    <form class="schedule-modal" id="scheduleForm">
+      <button type="button" class="modal-close" id="closeModal">×</button>
+      <span class="eyebrow">SOLICITAÇÃO DEMONSTRATIVA</span><h2>Agendar coleta</h2>
+      <p>Preencha os dados para simular um pedido de coleta de resíduos volumosos.</p>
+      <label>Seu nome<input required placeholder="Nome completo"></label>
+      <label>Telefone<input required type="tel" placeholder="(92) 99999-9999"></label>
+      <label>Bairro<input required placeholder="Seu bairro"></label>
+      <label>Tipo de resíduo<select required><option value="">Selecione</option><option>Móveis</option><option>Eletrodomésticos</option><option>Entulho ensacado</option><option>Outro volumoso</option></select></label>
+      <button class="primary-btn full-btn" type="submit">Enviar solicitação</button>
+      <small class="form-disclaimer">A solicitação não será enviada a um serviço real.</small>
+    </form>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
